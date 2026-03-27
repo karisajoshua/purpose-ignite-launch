@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
@@ -14,14 +15,17 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-bold text-secondary mb-4">Quick Links</h4>
           <div className="space-y-2">
-            {["About", "Programmes", "Mentorship", "Services", "Contact"].map((l) => (
-              <a
-                key={l}
-                href={`#${l.toLowerCase()}`}
-                className="block text-sm text-muted/60 hover:text-secondary transition-colors"
-              >
-                {l}
-              </a>
+            {[
+              { label: "About", to: "/#about" },
+              { label: "Programmes", to: "/programmes" },
+              { label: "Mentorship", to: "/mentorship" },
+              { label: "Services", to: "/services" },
+              { label: "Gallery", to: "/gallery" },
+              { label: "Contact", to: "/contact" },
+            ].map((l) => (
+              <Link key={l.to} to={l.to} className="block text-sm text-muted/60 hover:text-secondary transition-colors">
+                {l.label}
+              </Link>
             ))}
           </div>
         </div>
@@ -29,7 +33,7 @@ const Footer = () => (
           <h4 className="font-heading font-bold text-secondary mb-4">Contact</h4>
           <div className="space-y-2 text-sm text-muted/60">
             <p>info.limitlessglobal@gmail.com</p>
-            <p>+254 6 157 885</p>
+            <p>+254 756 157 885</p>
             <p>Nairobi, Kenya</p>
           </div>
         </div>
