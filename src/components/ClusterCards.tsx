@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useStaggerReveal } from "@/hooks/useScrollReveal";
-
-interface Programme {
-  slug: string;
-  title: string;
-  modules: { title: string }[];
-}
+import type { Cluster } from "@/data/programmes";
 
 interface ClusterCardsProps {
-  cluster: { name: string; description: string; programmes: Programme[] };
+  cluster: Cluster;
 }
 
 const ClusterCards = ({ cluster }: ClusterCardsProps) => {
