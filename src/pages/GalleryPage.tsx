@@ -39,13 +39,13 @@ const GalleryPage = () => (
           <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">Our Work in Pictures</p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl text-primary">Gallery</h1>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {images.map((img, i) => (
-            <div key={i} className="relative group overflow-hidden aspect-[4/3]">
+            <div key={i} className="relative group overflow-hidden break-inside-avoid">
               <img
                 src={img.src}
                 alt={img.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">

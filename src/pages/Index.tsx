@@ -3,11 +3,21 @@ import { ArrowRight, Users, Presentation, BookOpen, Megaphone, BarChart3, Lightb
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-import gallery4 from "@/assets/gallery/gallery-4.jpg";
+import aboutImg from "@/assets/about-home.jpg";
 import g1 from "@/assets/gallery/gallery-1.jpg";
 import g5 from "@/assets/gallery/gallery-5.jpg";
 import g9 from "@/assets/gallery/gallery-9.jpg";
 import g8 from "@/assets/gallery/gallery-8.jpg";
+import { clusters } from "@/data/programmes";
+
+const serviceTaglines: Record<string, string> = {
+  "Leadership Development": "Raising leaders who lead with purpose and deliver impact.",
+  "Corporate Training": "Transforming teams into high-performing engines of excellence.",
+  "Mentorship & Coaching": "Guiding growth. Unlocking potential. Sustaining transformation.",
+  "Strategic Communications": "Crafting powerful narratives that connect, influence, and inspire.",
+  "Organizational Development": "Building strong cultures and systems that drive lasting results.",
+  "ILO SIYB Business Training": "Equipping entrepreneurs to start, grow, and sustain successful businesses.",
+};
 
 const Index = () => (
   <div className="scroll-smooth">
@@ -32,7 +42,7 @@ const Index = () => (
           </p>
         </div>
         <div className="relative">
-          <img src={gallery4} alt="Limitless team at work" className="w-full h-[400px] object-cover" loading="lazy" />
+          <img src={aboutImg} alt="Limitless team at work" className="w-full h-[400px] object-cover object-top" loading="lazy" />
           <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-secondary" />
         </div>
       </div>
@@ -80,24 +90,48 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Programmes Brief */}
+    {/* Programmes Brief — clickable cards */}
     <section id="programmes" className="section-white py-24">
-      <div className="container mx-auto px-4 text-center">
-        <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">Limitless Leadership Academy</p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">Management & Leadership Development</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-          Comprehensive programmes designed to build leadership capacity at every level—from supervisory to executive leadership.
-        </p>
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
-          {["Leadership by Level Programmes", "Functional Excellence Programmes", "Specialized Programmes"].map((name) => (
-            <div key={name} className="border border-border p-8 card-lift">
-              <h3 className="text-lg font-heading font-bold text-primary">{name}</h3>
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">Limitless Leadership Academy</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">Management & Leadership Development</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive programmes designed to build leadership capacity at every level—from supervisory to executive leadership.
+          </p>
+        </div>
+
+        <div className="space-y-12 mb-10">
+          {clusters.map((cluster) => (
+            <div key={cluster.name}>
+              <h3 className="text-xl md:text-2xl text-primary mb-2">{cluster.name}</h3>
+              <p className="text-sm text-muted-foreground mb-6">{cluster.description}</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {cluster.programmes.map((p) => (
+                  <Link
+                    key={p.slug}
+                    to={`/programmes/${p.slug}`}
+                    className="border border-border p-8 card-lift group block"
+                  >
+                    <h4 className="text-lg font-heading font-bold text-primary group-hover:text-secondary transition-colors mb-2">
+                      {p.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-4">{p.modules.length} Modules</p>
+                    <span className="inline-flex items-center gap-1 text-secondary text-sm font-bold tracking-wide">
+                      View Programme <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
           ))}
         </div>
-        <Link to="/programmes" className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-secondary-foreground font-bold text-sm tracking-widest uppercase hover:bg-gold-light transition-colors">
-          View All Programmes <ArrowRight className="w-4 h-4" />
-        </Link>
+
+        <div className="text-center">
+          <Link to="/programmes" className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-secondary-foreground font-bold text-sm tracking-widest uppercase hover:bg-gold-light transition-colors">
+            View All Programmes <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </section>
 
@@ -116,12 +150,15 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Services Brief */}
+    {/* Services Brief — with taglines */}
     <section id="services" className="section-muted py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-4">
           <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">What We Do</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">Our Services</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
+            At Limitless Communications Limited, we design transformational solutions that unlock potential, strengthen leadership, and drive sustainable impact.
+          </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {[
@@ -133,8 +170,9 @@ const Index = () => (
             { icon: Lightbulb, title: "ILO SIYB Business Training" },
           ].map((s) => (
             <div key={s.title} className="bg-card border border-border p-8 card-lift group text-center">
-              <s.icon className="w-10 h-10 text-secondary mb-4 mx-auto" strokeWidth={1.5} />
-              <h3 className="text-lg text-primary font-heading font-bold">{s.title}</h3>
+              <s.icon className="w-10 h-10 text-secondary mb-4 mx-auto group-hover:scale-110 transition-transform" strokeWidth={1.5} />
+              <h3 className="text-lg text-primary font-heading font-bold mb-2">{s.title}</h3>
+              <p className="text-sm text-muted-foreground italic leading-relaxed">{serviceTaglines[s.title]}</p>
             </div>
           ))}
         </div>
@@ -156,7 +194,7 @@ const Index = () => (
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {[g1, g5, g9, g8].map((src, i) => (
             <div key={i} className="relative group overflow-hidden aspect-square">
-              <img src={src} alt="Gallery preview" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src={src} alt="Gallery preview" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
           ))}
         </div>
