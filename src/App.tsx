@@ -11,6 +11,7 @@ import MentorshipPage from "./pages/MentorshipPage.tsx";
 import ServicesPage from "./pages/ServicesPage.tsx";
 import BlogPage from "./pages/BlogPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
+import ProgrammeDetailPage from "./pages/ProgrammeDetailPage.tsx";
 
 const queryClient = new QueryClient();
 
