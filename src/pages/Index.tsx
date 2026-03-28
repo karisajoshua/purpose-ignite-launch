@@ -10,6 +10,7 @@ import g9 from "@/assets/gallery/gallery-9.jpg";
 import g8 from "@/assets/gallery/gallery-8.jpg";
 import { clusters } from "@/data/programmes";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import ClusterCards from "@/components/ClusterCards";
 
 const serviceTaglines: Record<string, string> = {
   "Leadership Development": "Raising leaders who lead with purpose and deliver impact.",
