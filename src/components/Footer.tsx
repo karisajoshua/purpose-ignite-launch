@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Linkedin, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
@@ -11,6 +12,14 @@ const Footer = () => (
             We Connect. Empower. Transform.
           </p>
           <p className="text-secondary text-sm font-bold mt-2">#WeConnectEmpowerTransform</p>
+          <div className="flex gap-4 mt-4">
+            <a href="https://www.linkedin.com/company/limitless-consultants/" target="_blank" rel="noopener noreferrer" className="text-muted/60 hover:text-secondary transition-colors">
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a href="https://www.facebook.com/share/p/1KvCWQYHJj/" target="_blank" rel="noopener noreferrer" className="text-muted/60 hover:text-secondary transition-colors">
+              <Facebook className="w-5 h-5" />
+            </a>
+          </div>
         </div>
         <div>
           <h4 className="font-heading font-bold text-secondary mb-4">Quick Links</h4>

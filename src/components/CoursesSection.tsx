@@ -1,125 +1,7 @@
+import { Link } from "react-router-dom";
+import { ChevronDown, ChevronUp, BookOpen, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { ChevronDown, ChevronUp, BookOpen } from "lucide-react";
-
-interface Programme {
-  title: string;
-  modules: string[];
-}
-
-interface Cluster {
-  name: string;
-  description: string;
-  programmes: Programme[];
-}
-
-const clusters: Cluster[] = [
-  {
-    name: "Leadership by Level Programmes",
-    description: "Designed to equip leaders at every level with the skills and mindset to lead effectively.",
-    programmes: [
-      {
-        title: "Supervisory Leadership & Skills Development Programme",
-        modules: [
-          "The Transition to Supervisory Leadership",
-          "Roles & Responsibilities of a Supervisor",
-          "Effective Communication in the Workplace",
-          "Team Coordination & Task Management",
-          "Managing Performance & Discipline",
-          "Building Productive Work Relationships",
-        ],
-      },
-      {
-        title: "Strategic Leadership Development Programme (SLDP)",
-        modules: [
-          "Foundations of Strategic Leadership",
-          "Visioning, Purpose & Organizational Direction",
-          "Strategy Formulation & Execution",
-          "Data-Driven Decision Making",
-          "Leading High-Performing Teams",
-          "Innovation, Growth & Sustainability",
-        ],
-      },
-      {
-        title: "Executive Leadership & Senior Management Programme (ELSMP)",
-        modules: [
-          "The Role of Executive Leadership in Modern Organizations",
-          "Strategic Thinking & Decision-Making",
-          "Leading Organizational Performance & Growth",
-          "Governance, Ethics & Accountability",
-          "Leading Through Change & Uncertainty",
-          "Executive Presence & Influence",
-        ],
-      },
-    ],
-  },
-  {
-    name: "Functional Excellence Programmes",
-    description: "Focused on building critical management competencies that drive organizational performance.",
-    programmes: [
-      {
-        title: "Performance Management & Accountability Programme",
-        modules: [
-          "Foundations of Performance Management",
-          "Goal Setting (KPIs & Targets)",
-          "Monitoring & Evaluating Performance",
-          "Coaching & Feedback for Performance Improvement",
-          "Managing Underperformance",
-          "Building a Culture of Accountability",
-        ],
-      },
-      {
-        title: "Customer Experience & Service Leadership Programme",
-        modules: [
-          "Understanding Customer Experience (CX)",
-          "Building a Customer-Centric Culture",
-          "Service Excellence Principles & Standards",
-          "Managing Customer Feedback & Complaints",
-          "Communication & Brand Representation",
-          "Leading Customer-Focused Teams",
-        ],
-      },
-      {
-        title: "Culture by Design: Organizational Culture & Values Programme",
-        modules: [
-          "Understanding Organizational Culture",
-          "Defining & Aligning Core Values",
-          "Building a Values-Driven Organization",
-          "Leadership's Role in Shaping Culture",
-          "Embedding Culture into Systems & Processes",
-          "Sustaining Culture for Long-Term Impact",
-        ],
-      },
-    ],
-  },
-  {
-    name: "Specialized Programmes",
-    description: "Targeted programmes designed to deepen leadership capacity and organizational impact.",
-    programmes: [
-      {
-        title: "Transformational & Purpose-Driven Leadership Programme",
-        modules: [
-          "Understanding Transformational Leadership",
-          "Purpose, Values & Leadership Identity",
-          "Emotional Intelligence & Self-Mastery",
-          "Leading Through Influence & Inspiration",
-          "Driving Change & Organizational Transformation",
-          "Building a Legacy of Impact",
-        ],
-      },
-      {
-        title: "Trainer of Trainers (ToT): Facilitation & Learning Excellence Programme",
-        modules: [
-          "Principles of Adult Learning",
-          "Training Design & Content Development",
-          "Facilitation Skills & Delivery Techniques",
-          "Engaging Diverse Audiences",
-          "Assessment & Evaluation of Learning",
-          "Personal Effectiveness as a Trainer",
-        ],
-      },
-    ],
-  },
-];
+import { clusters, type Programme } from "@/data/programmes";
 
 const ProgrammeCard = ({ programme }: { programme: Programme }) => {
   const [open, setOpen] = useState(false);
@@ -157,12 +39,12 @@ const ProgrammeCard = ({ programme }: { programme: Programme }) => {
                 </li>
               ))}
             </ol>
-            <a
-              href="#contact"
-              className="inline-block mt-6 px-8 py-3 bg-secondary text-secondary-foreground font-bold text-xs tracking-widest uppercase hover:bg-gold-light transition-colors"
+            <Link
+              to={`/programmes/${programme.slug}`}
+              className="inline-flex items-center gap-2 mt-6 px-8 py-3 bg-secondary text-secondary-foreground font-bold text-xs tracking-widest uppercase hover:bg-gold-light transition-colors"
             >
-              Enroll Now
-            </a>
+              View Full Details <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       )}
