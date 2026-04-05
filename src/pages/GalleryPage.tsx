@@ -80,10 +80,10 @@ const GalleryPage = () => {
               <button
                 key={g.title}
                 onClick={() => setOpen(g.url)}
-                className={`group relative rounded-2xl bg-gradient-to-br ${g.color} p-8 text-left transition-all duration-300 hover:scale-[1.03] hover:shadow-xl min-h-[180px] flex flex-col justify-between`}
+                className={`group relative rounded-none ${g.bg} p-8 text-left transition-all duration-300 hover:scale-[1.03] hover:shadow-xl min-h-[180px] flex flex-col justify-between`}
               >
-                <h3 className="text-xl font-bold text-primary-foreground">{g.title}</h3>
-                <div className="flex items-center gap-2 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors text-sm mt-4">
+                <h3 className={`text-xl font-bold ${g.text}`}>{g.title}</h3>
+                <div className={`flex items-center gap-2 ${g.sub} group-hover:${g.text} transition-colors text-sm mt-4`}>
                   <span>View Gallery</span>
                   <ExternalLink className="h-4 w-4" />
                 </div>
