@@ -33,6 +33,7 @@ const ProgrammeDetailPage = () => {
 
   return (
     <div>
+      <SEO title={programme.title} description={programme.overview} path={`/programmes/${slug}`} />
       <Navbar />
       <section className="pt-28 pb-24 section-white">
         <div className="container mx-auto px-4 max-w-4xl">
