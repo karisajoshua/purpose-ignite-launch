@@ -34,9 +34,9 @@ const images = [
 ];
 
 const pixieset = [
-  { title: "Limitless Consultations", url: "https://ketchup.pixieset.com/limitlessconsultations/", color: "from-primary to-primary/80" },
-  { title: "Business Forum", url: "https://articulatemedia.pixieset.com/businessforum/", color: "from-secondary/90 to-secondary/60" },
-  { title: "Limitless Graduation", url: "https://articulatemedia.pixieset.com/limitlessgraduation/", color: "from-primary/90 to-secondary/70" },
+  { title: "Limitless Consultations", url: "https://ketchup.pixieset.com/limitlessconsultations/", bg: "bg-primary", text: "text-secondary", sub: "text-secondary/80" },
+  { title: "Business Forum", url: "https://articulatemedia.pixieset.com/businessforum/", bg: "bg-secondary", text: "text-primary", sub: "text-primary/80" },
+  { title: "Limitless Graduation", url: "https://articulatemedia.pixieset.com/limitlessgraduation/", bg: "bg-primary", text: "text-secondary", sub: "text-secondary/80" },
 ];
 
 const GalleryPage = () => {
