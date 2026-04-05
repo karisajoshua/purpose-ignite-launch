@@ -37,6 +37,7 @@ const Index = () => {
 
   return (
     <div className="scroll-smooth">
+      <SEO title="Connect. Empower. Transform" description="Limitless Communications — premier consultancy in leadership development, corporate training, mentorship, and organizational capacity building across Africa." path="/" />
       <Navbar />
       <HeroSection />
 

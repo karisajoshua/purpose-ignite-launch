@@ -45,6 +45,7 @@ const GalleryPage = () => {
 
   return (
     <div>
+      <SEO title="Gallery" description="Browse photos and galleries from Limitless Communications events — leadership workshops, mentorship programmes, corporate training, and community outreach." path="/gallery" />
       <Navbar />
       <section className="pt-28 pb-24 section-white">
         <div className="container mx-auto px-4">
