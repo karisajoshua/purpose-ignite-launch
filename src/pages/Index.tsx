@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { ArrowRight, Users, Presentation, BookOpen, Megaphone, BarChart3, Lightbulb, Eye, Target, TrendingUp, Shield, Scale, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -36,6 +37,7 @@ const Index = () => {
 
   return (
     <div className="scroll-smooth">
+      <SEO title="Connect. Empower. Transform" description="Limitless Communications — premier consultancy in leadership development, corporate training, mentorship, and organizational capacity building across Africa." path="/" />
       <Navbar />
       <HeroSection />
 

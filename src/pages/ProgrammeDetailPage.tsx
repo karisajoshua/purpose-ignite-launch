@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { findProgrammeBySlug, clusters } from "@/data/programmes";
 
 const ProgrammeDetailPage = () => {
@@ -32,6 +33,7 @@ const ProgrammeDetailPage = () => {
 
   return (
     <div>
+      <SEO title={programme.title} description={programme.overview} path={`/programmes/${slug}`} />
       <Navbar />
       <section className="pt-28 pb-24 section-white">
         <div className="container mx-auto px-4 max-w-4xl">
