@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { ArrowRight, Users, Presentation, BookOpen, Megaphone, BarChart3, Lightbulb, Eye, Target, TrendingUp, Shield, Scale, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
