@@ -1,5 +1,8 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { ExternalLink } from "lucide-react";
 import g1 from "@/assets/gallery/gallery-1.jpg";
 import g2 from "@/assets/gallery/gallery-2.jpg";
 import g3 from "@/assets/gallery/gallery-3.jpg";
@@ -30,34 +33,83 @@ const images = [
   { src: g13, title: "Women Empowerment Session" },
 ];
 
-const GalleryPage = () => (
-  <div>
-    <Navbar />
-    <section className="pt-28 pb-24 section-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">Our Work in Pictures</p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl text-primary">Gallery</h1>
-        </div>
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-          {images.map((img, i) => (
-            <div key={i} className="relative group overflow-hidden break-inside-avoid">
-              <img
-                src={img.src}
-                alt={img.title}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-secondary font-heading text-lg font-bold">{img.title}</p>
+const pixieset = [
+  { title: "Limitless Consultations", url: "https://ketchup.pixieset.com/limitlessconsultations/", color: "from-primary to-primary/80" },
+  { title: "Business Forum", url: "https://articulatemedia.pixieset.com/businessforum/", color: "from-secondary/90 to-secondary/60" },
+  { title: "Limitless Graduation", url: "https://articulatemedia.pixieset.com/limitlessgraduation/", color: "from-primary/90 to-secondary/70" },
+];
+
+const GalleryPage = () => {
+  const [open, setOpen] = useState<string | null>(null);
+
+  return (
+    <div>
+      <Navbar />
+      <section className="pt-28 pb-24 section-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">Our Work in Pictures</p>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl text-primary">Gallery</h1>
+          </div>
+
+          {/* Photo Grid */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 mb-20">
+            {images.map((img, i) => (
+              <div key={i} className="relative group overflow-hidden break-inside-avoid">
+                <img
+                  src={img.src}
+                  alt={img.title}
+                  className="w-full h-auto object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <p className="text-secondary font-heading text-lg font-bold">{img.title}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Pixieset Collections */}
+          <div className="text-center mb-12">
+            <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">Full Collections</p>
+            <h2 className="text-2xl md:text-3xl text-primary">Browse Our Photo Galleries</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {pixieset.map((g) => (
+              <button
+                key={g.title}
+                onClick={() => setOpen(g.url)}
+                className={`group relative rounded-2xl bg-gradient-to-br ${g.color} p-8 text-left transition-all duration-300 hover:scale-[1.03] hover:shadow-xl min-h-[180px] flex flex-col justify-between`}
+              >
+                <h3 className="text-xl font-bold text-primary-foreground">{g.title}</h3>
+                <div className="flex items-center gap-2 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors text-sm mt-4">
+                  <span>View Gallery</span>
+                  <ExternalLink className="h-4 w-4" />
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-    <Footer />
-  </div>
-);
+      </section>
+
+      <Dialog open={!!open} onOpenChange={() => setOpen(null)}>
+        <DialogContent className="max-w-5xl w-[95vw] h-[85vh] p-0 overflow-hidden">
+          <DialogTitle className="sr-only">Gallery</DialogTitle>
+          {open && (
+            <iframe
+              src={open}
+              title="Pixieset Gallery"
+              className="w-full h-full border-0"
+              allow="fullscreen"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
+
+      <Footer />
+    </div>
+  );
+};
 
 export default GalleryPage;
