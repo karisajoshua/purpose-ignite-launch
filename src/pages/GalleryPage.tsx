@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ExternalLink } from "lucide-react";
 import g1 from "@/assets/gallery/gallery-1.jpg";
