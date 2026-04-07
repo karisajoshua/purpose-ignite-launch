@@ -12,6 +12,7 @@ import g8 from "@/assets/gallery/gallery-8.jpg";
 import { clusters } from "@/data/programmes";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import ClusterCards from "@/components/ClusterCards";
+import LeadCapturePopup from "@/components/LeadCapturePopup";
 
 const serviceTaglines: Record<string, string> = {
   "Leadership Development": "Raising leaders who lead with purpose and deliver impact.",
@@ -225,6 +226,7 @@ const Index = () => {
       </section>
 
       <Footer />
+      <LeadCapturePopup />
     </div>
   );
 };
