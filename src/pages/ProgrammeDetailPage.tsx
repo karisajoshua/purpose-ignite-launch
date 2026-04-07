@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { findProgrammeBySlug, clusters } from "@/data/programmes";
+import EnrollmentDialog from "@/components/EnrollmentDialog";
 
 const ProgrammeDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const programme = slug ? findProgrammeBySlug(slug) : undefined;
+  const [enrollOpen, setEnrollOpen] = useState(false);
 
   if (!programme) {
     return (
@@ -26,7 +29,6 @@ const ProgrammeDetailPage = () => {
     );
   }
 
-  // Find cluster name
   const cluster = clusters.find((c) =>
     c.programmes.some((p) => p.slug === slug)
   );
@@ -37,7 +39,6 @@ const ProgrammeDetailPage = () => {
       <Navbar />
       <section className="pt-28 pb-24 section-white">
         <div className="container mx-auto px-4 max-w-4xl">
-          {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
             <Link to="/programmes" className="hover:text-secondary transition-colors flex items-center gap-1">
               <ArrowLeft className="w-4 h-4" /> All Programmes
@@ -50,7 +51,6 @@ const ProgrammeDetailPage = () => {
             )}
           </div>
 
-          {/* Header */}
           <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
             {cluster?.name}
           </p>
@@ -61,7 +61,6 @@ const ProgrammeDetailPage = () => {
             {programme.overview}
           </p>
 
-          {/* Modules */}
           <div className="border border-border p-8 md:p-12 mb-12">
             <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-8">
               Programme Modules
@@ -80,7 +79,6 @@ const ProgrammeDetailPage = () => {
             </ol>
           </div>
 
-          {/* What You'll Gain */}
           <div className="mb-12">
             <h2 className="text-2xl text-primary mb-6">What You'll Gain</h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -98,14 +96,13 @@ const ProgrammeDetailPage = () => {
             </div>
           </div>
 
-          {/* CTA */}
           <div className="border-t border-border pt-10 flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/contact"
+            <button
+              onClick={() => setEnrollOpen(true)}
               className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-secondary text-secondary-foreground font-bold text-sm tracking-widest uppercase hover:bg-gold-light transition-colors"
             >
               Enroll Now <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
             <Link
               to="/programmes"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 border border-border text-primary font-bold text-sm tracking-widest uppercase hover:border-secondary hover:text-secondary transition-colors"
@@ -115,6 +112,14 @@ const ProgrammeDetailPage = () => {
           </div>
         </div>
       </section>
+
+      <EnrollmentDialog
+        open={enrollOpen}
+        onOpenChange={setEnrollOpen}
+        programmeTitle={programme.title}
+        programmeSlug={slug!}
+      />
+
       <Footer />
     </div>
   );
