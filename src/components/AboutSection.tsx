@@ -24,8 +24,8 @@ const AboutSection = () => (
       </div>
       <div className="relative">
         <img
-          src={gallery4}
-          alt="Limitless team at work"
+          src={gallery5}
+          alt="Team Collaboration"
           className="w-full h-[500px] object-cover"
           loading="lazy"
         />
