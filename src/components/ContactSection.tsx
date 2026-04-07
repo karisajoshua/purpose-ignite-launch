@@ -19,7 +19,7 @@ const ContactSection = () => {
               <div className="space-y-4">
                 {[
                   { icon: Mail, text: "info.limitlessglobal@gmail.com" },
-                  { icon: Phone, text: "+254 6 157 885" },
+                  { icon: Phone, text: "+254 756 157 885" },
                   { icon: MapPin, text: "Nairobi, Kenya" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4">

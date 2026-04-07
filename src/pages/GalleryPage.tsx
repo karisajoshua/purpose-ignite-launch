@@ -36,7 +36,7 @@ const images = [
 
 const pixieset = [
   { title: "Limitless Consultations", url: "https://ketchup.pixieset.com/limitlessconsultations/", bg: "bg-primary", text: "text-secondary", sub: "text-secondary/80" },
-  { title: "Business Forum", url: "https://articulatemedia.pixieset.com/businessforum/", bg: "bg-secondary", text: "text-primary", sub: "text-primary/80" },
+  { title: "ILO/SIYB TRAINING", url: "https://articulatemedia.pixieset.com/businessforum/", bg: "bg-secondary", text: "text-primary", sub: "text-primary/80" },
   { title: "Limitless Graduation", url: "https://articulatemedia.pixieset.com/limitlessgraduation/", bg: "bg-primary", text: "text-secondary", sub: "text-secondary/80" },
 ];
 
