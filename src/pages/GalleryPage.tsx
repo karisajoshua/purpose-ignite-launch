@@ -19,7 +19,6 @@ import g12 from "@/assets/gallery/gallery-12.jpg";
 import g13 from "@/assets/gallery/gallery-13.jpg";
 
 const images = [
-  { src: g1, title: "Mentorship Programme" },
   { src: g2, title: "Leadership Workshop" },
   { src: g3, title: "Youth Empowerment" },
   { src: g4, title: "Corporate Training" },
