@@ -14,12 +14,23 @@ const AdminLoginPage = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
+      setLoading(false);
       toast.error(error.message);
-    } else {
+      return;
+    }
+    // Check if user has admin role
+    const { data: roleData } = await supabase.rpc("has_role", {
+      _user_id: data.user.id,
+      _role: "admin",
+    });
+    setLoading(false);
+    if (roleData) {
       navigate("/admin/dashboard");
+    } else {
+      toast.error("You do not have admin access.");
+      await supabase.auth.signOut();
     }
   };
 

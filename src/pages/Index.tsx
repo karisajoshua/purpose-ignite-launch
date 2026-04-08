@@ -213,7 +213,7 @@ const Index = () => {
             Ready to transform your leadership and organizational capacity? Reach out today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-muted/70 text-sm mb-8">
-            <span>info.limitlessglobal@gmail.com</span>
+            <span>info@limitlessconsultancy.co.ke</span>
             <span className="hidden sm:inline">|</span>
             <span>+254 756 157 885</span>
             <span className="hidden sm:inline">|</span>
