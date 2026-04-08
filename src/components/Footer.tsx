@@ -41,7 +41,7 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-bold text-secondary mb-4">Contact</h4>
           <div className="space-y-2 text-sm text-muted/60">
-            <p>info.limitlessglobal@gmail.com</p>
+            <p>info@limitlessconsultancy.co.ke</p>
             <p>+254 756 157 885</p>
             <p>Nairobi, Kenya</p>
           </div>
