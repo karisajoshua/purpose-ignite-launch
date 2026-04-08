@@ -42,7 +42,7 @@ const ContactSection = () => {
               <h3 className="text-xl text-primary mb-6">Contact Information</h3>
               <div className="space-y-4">
                 {[
-                  { icon: Mail, text: "info.limitlessglobal@gmail.com" },
+                  { icon: Mail, text: "info@limitlessconsultancy.co.ke" },
                   { icon: Phone, text: "+254 756 157 885" },
                   { icon: MapPin, text: "Nairobi, Kenya" },
                 ].map((item, i) => (
