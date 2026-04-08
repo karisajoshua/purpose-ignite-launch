@@ -1,4 +1,4 @@
-import gallery4 from "@/assets/gallery/gallery-4.jpg";
+import teamCollab from "@/assets/gallery/team_collab.jpg";
 
 const AboutSection = () => (
   <section id="about" className="section-white py-24">
@@ -24,7 +24,7 @@ const AboutSection = () => (
       </div>
       <div className="relative">
         <img
-          src={gallery5}
+          src={teamCollab}
           alt="Team Collaboration"
           className="w-full h-[500px] object-cover"
           loading="lazy"
