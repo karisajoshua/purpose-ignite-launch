@@ -15,6 +15,7 @@ import ContactPage from "./pages/ContactPage.tsx";
 import ProgrammeDetailPage from "./pages/ProgrammeDetailPage.tsx";
 import AdminLoginPage from "./pages/AdminLoginPage.tsx";
 import AdminDashboardPage from "./pages/AdminDashboardPage.tsx";
+import UserDashboardPage from "./pages/UserDashboardPage.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import BackToTop from "./components/BackToTop.tsx";
 
