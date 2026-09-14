@@ -34,6 +34,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-navy-light">
       <div className="container mx-auto flex items-center justify-between h-20 px-4 lg:px-8">
 
+        {/* Logo */}
         <Link
           to="/"
           onClick={closeAll}
@@ -46,78 +47,134 @@ const Navbar = () => {
           />
         </Link>
 
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
 
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setAboutOpen((current) => !current)}
-              className="flex items-center gap-1 text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors gold-underline"
-            >
-              About
-              <ChevronDown
-                size={16}
-                className={`transition-transform duration-200 ${
-                  aboutOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
+          <Link
+            to="/"
+            className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors gold-underline"
+          >
+            Home
+          </Link>
 
-            {aboutOpen && (
-              <div className="absolute left-0 top-full mt-3 w-64 bg-primary border border-navy-light shadow-2xl z-[100]">
-                {aboutLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    onClick={closeAll}
-                    className="block px-5 py-3 text-sm font-medium text-secondary/80 hover:text-secondary hover:bg-navy-light/40 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* About Us Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setAboutOpen(true)}
+            onMouseLeave={() => setAboutOpen(false)}
+          >
+            <div className="flex items-center">
+              <Link
+                to="/about"
+                className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors gold-underline"
+              >
+                About Us
+              </Link>
 
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors gold-underline"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <button
-          onClick={() => setOpen((current) => !current)}
-          className="lg:hidden text-secondary"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {open && (
-        <div className="lg:hidden bg-primary border-t border-navy-light animate-fade-in">
-          <div className="container mx-auto py-6 px-4 flex flex-col gap-2">
-
-            <div>
               <button
                 type="button"
                 onClick={() => setAboutOpen((current) => !current)}
-                className="w-full flex items-center justify-between text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
+                className="ml-1 text-secondary/80 hover:text-secondary"
+                aria-label="Open About Us menu"
+                aria-expanded={aboutOpen}
               >
-                <span>About</span>
-
                 <ChevronDown
-                  size={18}
+                  size={16}
                   className={`transition-transform duration-200 ${
                     aboutOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
+            </div>
+
+            {aboutOpen && (
+              <div className="absolute left-0 top-full pt-3 z-[100]">
+                <div className="w-64 overflow-hidden rounded-md bg-primary border border-navy-light shadow-2xl">
+                  {aboutLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={closeAll}
+                      className="block px-5 py-3 text-sm font-medium text-secondary/80 hover:text-secondary hover:bg-navy-light/40 transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Remaining desktop links */}
+          {navLinks
+            .filter((link) => link.href !== "/")
+            .map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors gold-underline"
+              >
+                {link.label}
+              </Link>
+            ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          onClick={() => {
+            setOpen((current) => !current);
+            setAboutOpen(false);
+          }}
+          className="lg:hidden text-secondary"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {open && (
+        <div className="lg:hidden bg-primary border-t border-navy-light">
+          <div className="container mx-auto py-6 px-4 flex flex-col gap-2">
+
+            <Link
+              to="/"
+              onClick={closeAll}
+              className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
+            >
+              Home
+            </Link>
+
+            {/* Mobile About Us Dropdown */}
+            <div>
+              <div className="flex items-center justify-between">
+                <Link
+                  to="/about"
+                  onClick={closeAll}
+                  className="flex-1 text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
+                >
+                  About Us
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setAboutOpen((current) => !current)
+                  }
+                  className="p-2 text-secondary/80 hover:text-secondary"
+                  aria-label="Open About Us submenu"
+                  aria-expanded={aboutOpen}
+                >
+                  <ChevronDown
+                    size={18}
+                    className={`transition-transform duration-200 ${
+                      aboutOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
 
               {aboutOpen && (
                 <div className="ml-4 mt-1 border-l border-navy-light pl-4">
@@ -135,16 +192,18 @@ const Navbar = () => {
               )}
             </div>
 
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={closeAll}
-                className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks
+              .filter((link) => link.href !== "/")
+              .map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={closeAll}
+                  className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
+                >
+                  {link.label}
+                </Link>
+              ))}
           </div>
         </div>
       )}
