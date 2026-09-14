@@ -30,8 +30,8 @@ return ( <div> <SEO
         </h2>
 
         <p className="text-muted-foreground leading-relaxed">
-          To be a leading force in transformational leadership and
-          capacity building across Africa and beyond.
+          To be a leading force in transformational leadership and capacity
+          building across Africa and beyond.
         </p>
       </div>
     </section>
@@ -122,10 +122,9 @@ return ( <div> <SEO
           </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Meet the professionals behind Limitless Communications and
-            the expertise they bring to our clients and programmes.
+            Meet the professionals behind Limitless Communications and the
+            expertise they bring to our clients and programmes.
           </p>
-
         </div>
 
       </div>
