@@ -4,13 +4,13 @@ import logo from "@/assets/logo.png";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const aboutLinks = [
+  const aboutLinks = [
   { label: "Who We Are", href: "/about#who-we-are" },
-  { label: "Our Story", href: "/about#story" },
-  { label: "Mission & Vision", href: "/about#mission-vision" },
-  { label: "Our Values", href: "/about#values" },
-  { label: "Our Approach", href: "/about#approach" },
+  { label: "Our Vision", href: "/about#vision" },
+  { label: "Our Mission", href: "/about#mission" },
+  { label: "The GRIT Framework", href: "/about#grit" },
   { label: "Our Team", href: "/about#team" },
-  { label: "Impact & Partnerships", href: "/about#impact" },
+
 ];
 
 const navLinks = [
