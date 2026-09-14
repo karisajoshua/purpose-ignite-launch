@@ -21,7 +21,7 @@ className="w-full flex items-start justify-between p-6 text-left gap-4"
          strokeWidth={1.5}
        />
 
-```
+
       <div>
         <h4 className="font-heading text-lg font-bold text-primary">
           {programme.title}
@@ -75,7 +75,7 @@ className="w-full flex items-start justify-between p-6 text-left gap-4"
     </div>
   )}
 </div>
-```
+
 
 );
 };
@@ -84,7 +84,7 @@ const CoursesSection = () => {
 return ( <section id="programmes" className="section-white py-24"> <div className="container mx-auto px-4"> <div className="text-center mb-16"> <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
 Limitless Leadership Academy </p>
 
-```
+
       <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
         Management & Leadership Development
       </h2>
@@ -123,7 +123,7 @@ Limitless Leadership Academy </p>
     </div>
   </div>
 </section>
-```
+
 
 );
 };
