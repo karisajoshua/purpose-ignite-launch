@@ -15,7 +15,7 @@ const ProgrammeCard = ({ programme }: { programme: Programme }) => {
     <div className="border border-border bg-card card-lift">
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen((current) => !current)}
         className="w-full flex items-start justify-between p-6 text-left gap-4"
       >
         <div className="flex items-start gap-4">
@@ -80,53 +80,55 @@ const ProgrammeCard = ({ programme }: { programme: Programme }) => {
   );
 };
 
-const CoursesSection = () => (
-  <section id="programmes" className="section-white py-24">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-16">
-        <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
-          Limitless Leadership Academy
-        </p>
+const CoursesSection = () => {
+  return (
+    <section id="programmes" className="section-white py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+            Limitless Leadership Academy
+          </p>
 
-        <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
-          Management & Leadership Development
-        </h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
+            Management & Leadership Development
+          </h2>
 
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Comprehensive programmes designed to build leadership capacity at
-          every level of your organization.
-        </p>
-      </div>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive programmes designed to build leadership capacity at
+            every level of your organization.
+          </p>
+        </div>
 
-      <div className="space-y-16">
-        {clusters.map((cluster) => (
-          <div key={cluster.name}>
-            <div className="mb-8">
-              <h3 className="text-2xl md:text-3xl text-primary mb-2">
-                {cluster.name}
-              </h3>
+        <div className="space-y-16">
+          {clusters.map((cluster) => (
+            <div key={cluster.name}>
+              <div className="mb-8">
+                <h3 className="text-2xl md:text-3xl text-primary mb-2">
+                  {cluster.name}
+                </h3>
 
-              <p className="text-muted-foreground">
-                {cluster.description}
-              </p>
+                <p className="text-muted-foreground">
+                  {cluster.description}
+                </p>
 
-              <div className="w-16 h-0.5 bg-secondary mt-4" />
+                <div className="w-16 h-0.5 bg-secondary mt-4" />
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {cluster.programmes.map((programme) => (
+                  <ProgrammeCard
+                    key={programme.slug}
+                    programme={programme}
+                  />
+                ))}
+              </div>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {cluster.programmes.map((programme) => (
-                <ProgrammeCard
-                  key={programme.slug}
-                  programme={programme}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default CoursesSection;
 ```
