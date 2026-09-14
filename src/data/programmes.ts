@@ -16,7 +16,103 @@ export interface Cluster {
   programmes: Programme[];
 }
 
-export const clusters: Cluster[] = [
+export const{
+  slug: "church-leadership-development",
+  title: "Church Leadership Development Programme",
+  overview:
+    "A specialized leadership development programme designed to equip pastors, ministry leaders, church administrators and emerging church leaders with the leadership, governance and people-management capabilities required to lead healthy, effective and purpose-driven ministries. The programme integrates servant leadership, spiritual leadership, organizational management, conflict resolution, team development, succession planning and community impact.",
+  modules: [
+    {
+      title: "Foundations of Christian Leadership",
+      topics: [
+        "Biblical principles of leadership",
+        "Servant leadership and Christ-centred leadership",
+        "The character and integrity of a church leader",
+        "Leadership calling, purpose and responsibility",
+        "Vision, mission and values in ministry",
+        "Leading with humility, accountability and wisdom",
+        "Spiritual maturity and leadership effectiveness",
+      ],
+    },
+    {
+      title: "Vision, Strategy & Ministry Development",
+      topics: [
+        "Developing a clear ministry vision",
+        "Strategic planning for churches and ministries",
+        "Setting ministry goals and priorities",
+        "Translating vision into action",
+        "Ministry programme development",
+        "Resource planning and stewardship",
+        "Measuring ministry effectiveness and impact",
+      ],
+    },
+    {
+      title: "People, Teams & Volunteer Leadership",
+      topics: [
+        "Building effective ministry teams",
+        "Volunteer recruitment and engagement",
+        "Delegation and responsibility",
+        "Developing emerging leaders",
+        "Motivating and retaining ministry teams",
+        "Effective communication in ministry",
+        "Team accountability and performance",
+        "Creating a healthy leadership culture",
+      ],
+    },
+    {
+      title: "Church Governance, Ethics & Accountability",
+      topics: [
+        "Principles of church governance",
+        "Leadership structures and responsibilities",
+        "Ethical decision-making",
+        "Financial stewardship and accountability",
+        "Transparency and responsible resource management",
+        "Leadership policies and procedures",
+        "Risk management in church organizations",
+        "Safeguarding and protection of vulnerable people",
+      ],
+    },
+    {
+      title: "Conflict Resolution & Pastoral Leadership",
+      topics: [
+        "Understanding conflict in church environments",
+        "Sources of organizational and interpersonal conflict",
+        "Biblical approaches to conflict resolution",
+        "Mediation and reconciliation",
+        "Difficult conversations",
+        "Managing leadership disagreements",
+        "Building trust and restoring relationships",
+        "Pastoral care and people-centred leadership",
+      ],
+    },
+    {
+      title: "Leadership Development & Succession",
+      topics: [
+        "Identifying emerging church leaders",
+        "Mentorship and coaching",
+        "Leadership pipeline development",
+        "Succession planning",
+        "Preparing the next generation of leaders",
+        "Knowledge transfer and continuity",
+        "Developing ministry leadership competencies",
+        "Building sustainable leadership structures",
+      ],
+    },
+    {
+      title: "Community Transformation & Social Impact",
+      topics: [
+        "The role of the church in community development",
+        "Community engagement and partnerships",
+        "Social responsibility and outreach",
+        "Youth and family empowerment",
+        "Supporting vulnerable communities",
+        "Church-led social impact initiatives",
+        "Partnerships with government, NGOs and community organizations",
+        "Measuring social and community impact",
+      ],
+    },
+  ],
+}, clusters: Cluster[] = [
   {
     name: "Leadership by Level Programmes",
     description:
