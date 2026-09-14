@@ -4,13 +4,11 @@ import logo from "@/assets/logo.png";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const aboutLinks = [
-  const aboutLinks = [
   { label: "Who We Are", href: "/about#who-we-are" },
   { label: "Our Vision", href: "/about#vision" },
   { label: "Our Mission", href: "/about#mission" },
   { label: "The GRIT Framework", href: "/about#grit" },
   { label: "Our Team", href: "/about#team" },
-
 ];
 
 const navLinks = [
@@ -36,7 +34,6 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-navy-light">
       <div className="container mx-auto flex items-center justify-between h-20 px-4 lg:px-8">
 
-        {/* LOGO */}
         <Link
           to="/"
           onClick={closeAll}
@@ -49,15 +46,12 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* DESKTOP NAVIGATION */}
         <div className="hidden lg:flex items-center gap-8">
 
-          {/* ABOUT DROPDOWN */}
           <div className="relative">
-
             <button
               type="button"
-              onClick={() => setAboutOpen(!aboutOpen)}
+              onClick={() => setAboutOpen((current) => !current)}
               className="flex items-center gap-1 text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors gold-underline"
             >
               About
@@ -69,10 +63,8 @@ const Navbar = () => {
               />
             </button>
 
-            {/* DROPDOWN MENU */}
             {aboutOpen && (
               <div className="absolute left-0 top-full mt-3 w-64 bg-primary border border-navy-light shadow-2xl z-[100]">
-
                 {aboutLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -83,12 +75,10 @@ const Navbar = () => {
                     {link.label}
                   </Link>
                 ))}
-
               </div>
             )}
           </div>
 
-          {/* OTHER NAVIGATION LINKS */}
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -98,31 +88,25 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-
         </div>
 
-        {/* MOBILE MENU BUTTON */}
         <button
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen((current) => !current)}
           className="lg:hidden text-secondary"
           aria-label="Toggle menu"
         >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
-
       </div>
 
-      {/* MOBILE MENU */}
       {open && (
         <div className="lg:hidden bg-primary border-t border-navy-light animate-fade-in">
           <div className="container mx-auto py-6 px-4 flex flex-col gap-2">
 
-            {/* MOBILE ABOUT */}
             <div>
-
               <button
                 type="button"
-                onClick={() => setAboutOpen(!aboutOpen)}
+                onClick={() => setAboutOpen((current) => !current)}
                 className="w-full flex items-center justify-between text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
               >
                 <span>About</span>
@@ -137,7 +121,6 @@ const Navbar = () => {
 
               {aboutOpen && (
                 <div className="ml-4 mt-1 border-l border-navy-light pl-4">
-
                   {aboutLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -148,13 +131,10 @@ const Navbar = () => {
                       {link.label}
                     </Link>
                   ))}
-
                 </div>
               )}
-
             </div>
 
-            {/* OTHER MOBILE LINKS */}
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -165,7 +145,6 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-
           </div>
         </div>
       )}
