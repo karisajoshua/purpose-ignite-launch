@@ -27,7 +27,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
 
-  const closeMenu = () => {
+  const closeAll = () => {
     setOpen(false);
     setAboutOpen(false);
   };
@@ -36,8 +36,12 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-navy-light">
       <div className="container mx-auto flex items-center justify-between h-20 px-4 lg:px-8">
 
-        {/* Logo */}
-        <Link to="/" onClick={closeMenu} className="flex items-center gap-3">
+        {/* LOGO */}
+        <Link
+          to="/"
+          onClick={closeAll}
+          className="flex items-center gap-3"
+        >
           <img
             src={logo}
             alt="Limitless Communications"
@@ -45,18 +49,15 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* DESKTOP NAVIGATION */}
         <div className="hidden lg:flex items-center gap-8">
 
-          {/* About Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setAboutOpen(true)}
-            onMouseLeave={() => setAboutOpen(false)}
-          >
+          {/* ABOUT DROPDOWN */}
+          <div className="relative">
+
             <button
               type="button"
-              onClick={() => setAboutOpen((current) => !current)}
+              onClick={() => setAboutOpen(!aboutOpen)}
               className="flex items-center gap-1 text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors gold-underline"
             >
               About
@@ -68,27 +69,26 @@ const Navbar = () => {
               />
             </button>
 
+            {/* DROPDOWN MENU */}
             {aboutOpen && (
-              <div className="absolute left-0 top-full pt-3 z-50">
-                <div className="w-64 bg-primary border border-navy-light shadow-xl py-2">
+              <div className="absolute left-0 top-full mt-3 w-64 bg-primary border border-navy-light shadow-2xl z-[100]">
 
-                  {aboutLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={closeMenu}
-                      className="block px-5 py-3 text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary hover:bg-navy-light/40 transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                {aboutLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={closeAll}
+                    className="block px-5 py-3 text-sm font-medium text-secondary/80 hover:text-secondary hover:bg-navy-light/40 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
 
-                </div>
               </div>
             )}
           </div>
 
-          {/* Other Navigation Links */}
+          {/* OTHER NAVIGATION LINKS */}
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -101,7 +101,7 @@ const Navbar = () => {
 
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden text-secondary"
@@ -109,19 +109,21 @@ const Navbar = () => {
         >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
+
       </div>
 
-      {/* Mobile Navigation */}
+      {/* MOBILE MENU */}
       {open && (
         <div className="lg:hidden bg-primary border-t border-navy-light animate-fade-in">
           <div className="container mx-auto py-6 px-4 flex flex-col gap-2">
 
-            {/* Mobile About */}
+            {/* MOBILE ABOUT */}
             <div>
+
               <button
                 type="button"
-                onClick={() => setAboutOpen((current) => !current)}
-                className="w-full flex items-center justify-between text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors py-2"
+                onClick={() => setAboutOpen(!aboutOpen)}
+                className="w-full flex items-center justify-between text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
               >
                 <span>About</span>
 
@@ -134,28 +136,31 @@ const Navbar = () => {
               </button>
 
               {aboutOpen && (
-                <div className="pl-4 border-l border-navy-light mt-1 mb-2">
+                <div className="ml-4 mt-1 border-l border-navy-light pl-4">
+
                   {aboutLinks.map((link) => (
                     <Link
                       key={link.href}
                       to={link.href}
-                      onClick={closeMenu}
-                      className="block text-sm font-medium tracking-wide text-secondary/70 hover:text-secondary transition-colors py-2"
+                      onClick={closeAll}
+                      className="block py-2 text-sm text-secondary/70 hover:text-secondary transition-colors"
                     >
                       {link.label}
                     </Link>
                   ))}
+
                 </div>
               )}
+
             </div>
 
-            {/* Mobile Other Links */}
+            {/* OTHER MOBILE LINKS */}
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                onClick={closeMenu}
-                className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary transition-colors py-2"
+                onClick={closeAll}
+                className="text-sm font-medium tracking-wide text-secondary/80 hover:text-secondary py-2"
               >
                 {link.label}
               </Link>
