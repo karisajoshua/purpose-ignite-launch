@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import AboutPage from "./pages/AboutPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import GalleryPage from "./pages/GalleryPage.tsx";
 import ProgrammesPage from "./pages/ProgrammesPage.tsx";
@@ -21,32 +22,55 @@ import BackToTop from "./components/BackToTop.tsx";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <BackToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/programmes" element={<ProgrammesPage />} />
-          <Route path="/programmes/:slug" element={<ProgrammeDetailPage />} />
-          <Route path="/mentorship" element={<MentorshipPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogDetailPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/admin" element={<AdminLoginPage />} />
-          <Route path="/dashboard" element={<UserDashboardPage />} />
-          <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+const App = () => ( <QueryClientProvider client={queryClient}> <TooltipProvider> <Toaster /> <Sonner />
+
+```
+  <BrowserRouter>
+    <ScrollToTop />
+    <BackToTop />
+
+    <Routes>
+      <Route path="/" element={<Index />} />
+
+      <Route path="/about" element={<AboutPage />} />
+
+      <Route path="/gallery" element={<GalleryPage />} />
+
+      <Route path="/programmes" element={<ProgrammesPage />} />
+
+      <Route
+        path="/programmes/:slug"
+        element={<ProgrammeDetailPage />}
+      />
+
+      <Route path="/mentorship" element={<MentorshipPage />} />
+
+      <Route path="/services" element={<ServicesPage />} />
+
+      <Route path="/blog" element={<BlogPage />} />
+
+      <Route
+        path="/blog/:slug"
+        element={<BlogDetailPage />}
+      />
+
+      <Route path="/contact" element={<ContactPage />} />
+
+      <Route path="/admin" element={<AdminLoginPage />} />
+
+      <Route path="/dashboard" element={<UserDashboardPage />} />
+
+      <Route
+        path="/admin/dashboard"
+        element={<AdminDashboardPage />}
+      />
+
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
+</TooltipProvider>
+```
+
   </QueryClientProvider>
 );
 
