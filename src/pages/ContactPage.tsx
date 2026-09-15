@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import TeamSection from "@/components/TeamSection";
 import SEO from "@/components/SEO";
 
 const ContactPage = () => (
@@ -10,7 +9,6 @@ const ContactPage = () => (
     <Navbar />
     <div className="pt-20">
       <ContactSection />
-      <TeamSection />
     </div>
     <Footer />
   </div>
