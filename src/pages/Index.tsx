@@ -1,55 +1,506 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import AboutPage from "./pages/AboutPage.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import GalleryPage from "./pages/GalleryPage.tsx";
-import ProgrammesPage from "./pages/ProgrammesPage.tsx";
-import MentorshipPage from "./pages/MentorshipPage.tsx";
-import ServicesPage from "./pages/ServicesPage.tsx";
-import BlogPage from "./pages/BlogPage.tsx";
-import BlogDetailPage from "./pages/BlogDetailPage.tsx";
-import ContactPage from "./pages/ContactPage.tsx";
-import ProgrammeDetailPage from "./pages/ProgrammeDetailPage.tsx";
-import AdminLoginPage from "./pages/AdminLoginPage.tsx";
-import AdminDashboardPage from "./pages/AdminDashboardPage.tsx";
-import UserDashboardPage from "./pages/UserDashboardPage.tsx";
-import ScrollToTop from "./components/ScrollToTop.tsx";
-import BackToTop from "./components/BackToTop.tsx";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Users,
+  Presentation,
+  BookOpen,
+  Megaphone,
+  BarChart3,
+  Lightbulb,
+  Eye,
+  Target,
+  TrendingUp,
+  Shield,
+  Scale,
+  Zap,
+} from "lucide-react";
 
-const queryClient = new QueryClient();
+import SEO from "@/components/SEO";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import Footer from "@/components/Footer";
+import ClusterCards from "@/components/ClusterCards";
+import LeadCapturePopup from "@/components/LeadCapturePopup";
 
-const App = () => ( <QueryClientProvider client={queryClient}> <TooltipProvider> <Toaster /> <Sonner />
+import {
+  useScrollReveal,
+  useStaggerReveal,
+} from "@/hooks/useScrollReveal";
 
-```
-  <BrowserRouter>
-    <ScrollToTop />
-    <BackToTop />
+import { clusters } from "@/data/programmes";
 
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/gallery" element={<GalleryPage />} />
-      <Route path="/programmes" element={<ProgrammesPage />} />
-      <Route path="/programmes/:slug" element={<ProgrammeDetailPage />} />
-      <Route path="/mentorship" element={<MentorshipPage />} />
-      <Route path="/services" element={<ServicesPage />} />
-      <Route path="/blog" element={<BlogPage />} />
-      <Route path="/blog/:slug" element={<BlogDetailPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/admin" element={<AdminLoginPage />} />
-      <Route path="/dashboard" element={<UserDashboardPage />} />
-      <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>
-</TooltipProvider>
-```
+import aboutImg from "@/assets/about-home.jpg";
+import g1 from "@/assets/gallery/gallery-1.jpg";
+import g5 from "@/assets/gallery/gallery-5.jpg";
+import g9 from "@/assets/gallery/gallery-9.jpg";
+import g8 from "@/assets/gallery/gallery-8.jpg";
 
-  </QueryClientProvider>
-);
+const services = [
+  {
+    icon: Users,
+    title: "Leadership Development",
+    description:
+      "Raising leaders who lead with purpose and deliver impact.",
+  },
+  {
+    icon: Presentation,
+    title: "Corporate Training",
+    description:
+      "Transforming teams into high-performing engines of excellence.",
+  },
+  {
+    icon: BookOpen,
+    title: "Mentorship & Coaching",
+    description:
+      "Guiding growth. Unlocking potential. Sustaining transformation.",
+  },
+  {
+    icon: Megaphone,
+    title: "Strategic Communications",
+    description:
+      "Crafting powerful narratives that connect, influence, and inspire.",
+  },
+  {
+    icon: BarChart3,
+    title: "Organizational Development",
+    description:
+      "Building strong cultures and systems that drive lasting results.",
+  },
+  {
+    icon: Lightbulb,
+    title: "ILO SIYB Business Training",
+    description:
+      "Equipping entrepreneurs to start, grow, and sustain successful businesses.",
+  },
+];
 
-export default App;
+const gritPillars = [
+  {
+    icon: TrendingUp,
+    title: "Growth",
+    description:
+      "Continuous personal and organizational development.",
+  },
+  {
+    icon: Shield,
+    title: "Resilience",
+    description:
+      "The capacity to adapt, recover, and thrive.",
+  },
+  {
+    icon: Scale,
+    title: "Integrity",
+    description:
+      "Building trust and accountability consistently.",
+  },
+  {
+    icon: Zap,
+    title: "Transformation",
+    description:
+      "Driving meaningful, lasting change.",
+  },
+];
+
+const visionAndMission = [
+  {
+    icon: Eye,
+    title: "Our Vision",
+    text:
+      "To be a leading force in transformational leadership and capacity building across Africa and beyond.",
+  },
+  {
+    icon: Target,
+    title: "Our Mission",
+    text:
+      "To connect, empower, and transform individuals, teams, and organizations through world-class consultancy, training, mentorship, and strategic communications.",
+  },
+];
+
+const galleryImages = [g1, g5, g9, g8];
+
+const Index = () => {
+  const aboutRef = useScrollReveal();
+  const visionRef = useStaggerReveal(":scope > *", 200);
+  const gritHeaderRef = useScrollReveal();
+  const gritCardsRef = useStaggerReveal(":scope > *", 120);
+  const progHeaderRef = useScrollReveal();
+  const mentorshipRef = useScrollReveal();
+  const servicesHeaderRef = useScrollReveal();
+  const servicesCardsRef = useStaggerReveal(":scope > *", 100);
+  const galleryHeaderRef = useScrollReveal();
+  const galleryGridRef = useStaggerReveal(":scope > *", 120);
+  const contactRef = useScrollReveal();
+
+  return (
+    <div className="scroll-smooth">
+      <SEO
+        title="Connect. Empower. Transform"
+        description="Limitless Communications — premier consultancy in leadership development, corporate training, mentorship, and organizational capacity building across Africa."
+        path="/"
+      />
+
+      <Navbar />
+
+      <main>
+        <HeroSection />
+
+        {/* About Brief */}
+        <section id="about" className="section-white py-24">
+          <div
+            ref={aboutRef}
+            className="container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center"
+          >
+            <div>
+              <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+                About Us
+              </p>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl mb-6 text-primary">
+                Built on GRIT. Driven by Purpose.
+              </h2>
+
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Limitless Communications Limited is a premier consultancy
+                firm specializing in leadership development, organizational
+                capacity building, and transformative learning. We connect,
+                empower, and transform individuals and organizations to
+                achieve measurable results.
+              </p>
+
+              <p className="font-heading text-xl italic text-primary font-semibold mb-8">
+                #WeConnectEmpowerTransform
+              </p>
+
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 text-secondary font-bold hover:underline"
+              >
+                Learn More About Us
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="relative">
+              <img
+                src={aboutImg}
+                alt="Limitless team at work"
+                className="w-full h-[400px] object-cover object-top"
+                loading="lazy"
+              />
+
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-secondary" />
+            </div>
+          </div>
+        </section>
+
+        {/* Vision and Mission */}
+        <section className="section-navy py-24">
+          <div
+            ref={visionRef}
+            className="container mx-auto px-4 grid md:grid-cols-2 gap-8"
+          >
+            {visionAndMission.map((item) => (
+              <div
+                key={item.title}
+                className="border border-secondary/30 p-10 card-lift"
+              >
+                <item.icon
+                  className="w-10 h-10 text-secondary mb-6"
+                  strokeWidth={1.5}
+                />
+
+                <h3 className="text-2xl mb-4 text-secondary">
+                  {item.title}
+                </h3>
+
+                <p className="leading-relaxed text-muted/80">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* GRIT Framework */}
+        <section className="section-muted py-24">
+          <div className="container mx-auto px-4">
+            <div
+              ref={gritHeaderRef}
+              className="text-center mb-16"
+            >
+              <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+                Our Foundation
+              </p>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary">
+                The GRIT Framework
+              </h2>
+            </div>
+
+            <div
+              ref={gritCardsRef}
+              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {gritPillars.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className="bg-card p-8 border border-border card-lift group text-center"
+                >
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-secondary/40 group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors">
+                    <pillar.icon
+                      className="w-7 h-7"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+
+                  <h3 className="text-xl mb-3 text-primary">
+                    {pillar.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Programmes */}
+        <section id="programmes" className="section-white py-24">
+          <div className="container mx-auto px-4">
+            <div
+              ref={progHeaderRef}
+              className="text-center mb-16"
+            >
+              <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+                Limitless Leadership Academy
+              </p>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
+                Management & Leadership Development
+              </h2>
+
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Comprehensive programmes designed to build leadership
+                capacity at every level—from supervisory to executive
+                leadership.
+              </p>
+            </div>
+
+            <div className="space-y-12 mb-10">
+              {clusters.map((cluster) => (
+                <ClusterCards
+                  key={cluster.name}
+                  cluster={cluster}
+                />
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                to="/programmes"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-secondary-foreground font-bold text-sm tracking-widest uppercase hover:bg-gold-light transition-colors"
+              >
+                View All Programmes
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Mentorship */}
+        <section id="mentorship" className="section-navy py-24">
+          <div
+            ref={mentorshipRef}
+            className="container mx-auto px-4 text-center"
+          >
+            <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+              Limitless Mentorship Programme
+            </p>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-secondary mb-4">
+              Unlock Your Purpose. Lead with Clarity.
+            </h2>
+
+            <p className="max-w-3xl mx-auto text-muted/80 leading-relaxed mb-10">
+              A transformational, cohort-based leadership journey designed
+              to equip individuals with clarity of purpose, strengthened
+              personal leadership capacity, and practical tools to thrive.
+            </p>
+
+            <Link
+              to="/mentorship"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-secondary-foreground font-bold text-sm tracking-widest uppercase hover:bg-gold-light transition-colors"
+            >
+              Learn More
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" className="section-muted py-24">
+          <div className="container mx-auto px-4">
+            <div
+              ref={servicesHeaderRef}
+              className="text-center mb-4"
+            >
+              <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+                What We Do
+              </p>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
+                Our Services
+              </h2>
+
+              <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
+                At Limitless Communications Limited, we design
+                transformational solutions that unlock potential,
+                strengthen leadership, and drive sustainable impact.
+              </p>
+            </div>
+
+            <div
+              ref={servicesCardsRef}
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10"
+            >
+              {services.map((service) => (
+                <div
+                  key={service.title}
+                  className="bg-card border border-border p-8 card-lift group text-center"
+                >
+                  <service.icon
+                    className="w-10 h-10 text-secondary mb-4 mx-auto group-hover:scale-110 transition-transform"
+                    strokeWidth={1.5}
+                  />
+
+                  <h3 className="text-lg text-primary font-heading font-bold mb-2">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground italic leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-primary text-secondary font-bold text-sm tracking-widest uppercase hover:bg-navy-light transition-colors"
+              >
+                Explore Services
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery */}
+        <section id="gallery" className="section-white py-24">
+          <div className="container mx-auto px-4">
+            <div
+              ref={galleryHeaderRef}
+              className="text-center mb-16"
+            >
+              <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+                Our Work
+              </p>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary">
+                Gallery
+              </h2>
+            </div>
+
+            <div
+              ref={galleryGridRef}
+              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10"
+            >
+              {galleryImages.map((src, index) => (
+                <div
+                  key={src}
+                  className="relative group overflow-hidden aspect-square"
+                >
+                  <img
+                    src={src}
+                    alt={`Limitless gallery preview ${index + 1}`}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                to="/gallery"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-secondary-foreground font-bold text-sm tracking-widest uppercase hover:bg-gold-light transition-colors"
+              >
+                View Full Gallery
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="section-navy py-24">
+          <div
+            ref={contactRef}
+            className="container mx-auto px-4 text-center"
+          >
+            <p className="text-sm font-bold tracking-widest uppercase text-secondary mb-4">
+              Get in Touch
+            </p>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-secondary mb-4">
+              Let's Work Together
+            </h2>
+
+            <p className="text-muted/80 max-w-2xl mx-auto mb-4">
+              Ready to transform your leadership and organizational
+              capacity? Reach out today.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center text-muted/70 text-sm mb-8">
+              <a
+                href="mailto:info@limitlessconsultancy.co.ke"
+                className="hover:text-secondary transition-colors"
+              >
+                info@limitlessconsultancy.co.ke
+              </a>
+
+              <span className="hidden sm:inline">|</span>
+
+              <a
+                href="tel:+254756157885"
+                className="hover:text-secondary transition-colors"
+              >
+                +254 756 157 885
+              </a>
+
+              <span className="hidden sm:inline">|</span>
+
+              <span>Nairobi, Kenya</span>
+            </div>
+
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-secondary text-secondary-foreground font-bold text-sm tracking-widest uppercase hover:bg-gold-light transition-colors"
+            >
+              Contact Us
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <LeadCapturePopup />
+    </div>
+  );
+};
+
+export default Index;
