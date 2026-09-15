@@ -34,7 +34,6 @@ const ROTATION_INTERVAL = 6500;
 const HeroSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(true);
   const [pageVisible, setPageVisible] = useState(true);
   const [loadedSlides, setLoadedSlides] = useState<number[]>([]);
@@ -56,7 +55,7 @@ const HeroSection = () => {
     };
   }, []);
 
-  const canRotate = isPlaying && !isHovered && !reducedMotion && pageVisible;
+  const canRotate = isPlaying && !reducedMotion && pageVisible;
 
   useEffect(() => {
     if (!canRotate) return;
@@ -69,10 +68,9 @@ const HeroSection = () => {
     }, ROTATION_INTERVAL);
 
     return () => window.clearInterval(timer);
-  }, [canRotate, loadedSlides]);
+  }, [activeSlide, canRotate, loadedSlides]);
 
   const showSlide = (index: number) => {
-    setIsPlaying(false);
     setActiveSlide((index + slides.length) % slides.length);
   };
 
@@ -83,12 +81,10 @@ const HeroSection = () => {
       aria-label="Limitless leadership, mentorship and strategy"
       aria-roledescription="carousel"
       data-paused={!canRotate}
-      onPointerEnter={(event) => {
-        if (event.pointerType === "mouse") setIsHovered(true);
-      }}
-      onPointerLeave={() => setIsHovered(false)}
       onFocusCapture={(event) => {
-        if (!(event.target as HTMLElement).closest("[data-playback-control]")) {
+        const target = event.target as HTMLElement;
+        // Pause for keyboard navigation while allowing clicks and swipes to keep autoplay running.
+        if (target.matches(":focus-visible") && !target.closest("[data-playback-control]")) {
           setIsPlaying(false);
         }
       }}
