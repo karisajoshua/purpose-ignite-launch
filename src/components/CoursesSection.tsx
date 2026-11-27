@@ -128,7 +128,7 @@ const CoursesSection = () => {
 
         <div className="space-y-16">
           {clusters.map((cluster) => (
-            <div key={cluster.name}>
+            <div key={cluster.name} id={cluster.name === "AI Training & Digital Transformation" ? "ai-training" : undefined} className="scroll-mt-28">
               <div className="mb-8">
                 <h3 className="text-2xl md:text-3xl text-primary mb-2">
                   {cluster.name}
