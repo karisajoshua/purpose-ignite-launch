@@ -118,18 +118,17 @@ const CoursesSection = () => {
           </p>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
-            Management & Leadership Development
+            Leadership, Management & Digital Transformation
           </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive programmes designed to build leadership
-            capacity at every level of your organization.
+            Comprehensive programmes designed to build leadership, functional excellence and practical AI capabilities across your organization.
           </p>
         </div>
 
         <div className="space-y-16">
           {clusters.map((cluster) => (
-            <div key={cluster.name}>
+            <div key={cluster.name} id={cluster.name === "AI Training & Digital Transformation" ? "ai-training" : undefined} className="scroll-mt-28">
               <div className="mb-8">
                 <h3 className="text-2xl md:text-3xl text-primary mb-2">
                   {cluster.name}

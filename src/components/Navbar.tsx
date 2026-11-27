@@ -14,6 +14,7 @@ const aboutLinks = [
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Programmes", href: "/programmes" },
+  { label: "AI Training", href: "/programmes#ai-training" },
   { label: "Mentorship", href: "/mentorship" },
   { label: "Services", href: "/services" },
   { label: "Gallery", href: "/gallery" },
@@ -48,7 +49,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
 
           <Link
             to="/"

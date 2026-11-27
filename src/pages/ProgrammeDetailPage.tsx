@@ -58,6 +58,8 @@ const ProgrammeDetailPage = () => {
     )
   );
 
+  const isAI = cluster?.name === "AI Training & Digital Transformation";
+
   const toggleModule = (index: number) => {
     setOpenModule((current) =>
       current === index ? null : index
@@ -206,12 +208,17 @@ const ProgrammeDetailPage = () => {
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
+                {(isAI ? [
+                  "Practical AI skills for relevant workplace tasks",
+                  "Responsible use, verification and human oversight",
+                  "Organization-specific applications and guided exercises",
+                  "Practical approaches to evaluating AI-enabled improvements",
+                ] : [
                   "Practical tools and frameworks for immediate application",
                   "Enhanced leadership and management capabilities",
                   "Structured learning with expert facilitators",
                   "Certificate of completion upon finishing the programme",
-                ].map((item) => (
+                ]).map((item) => (
                   <div
                     key={item}
                     className="flex items-start gap-3"
