@@ -29,6 +29,7 @@ export const clusters: Cluster[] = [
           { title: "Foundations of Supervisory Leadership", topics: ["Understanding the role of a supervisor", "Leadership versus management", "Leadership styles", "Building trust and credibility", "Personal leadership effectiveness"] },
           { title: "Communication & Team Leadership", topics: ["Effective workplace communication", "Active listening", "Giving and receiving feedback", "Team motivation", "Building high-performing teams"] },
           { title: "Performance Management", topics: ["Setting performance expectations", "Monitoring employee performance", "Performance feedback", "Coaching employees", "Managing underperformance"] },
+          { title: "AI for Team Productivity, Work Planning and Supervision", topics: ["AI-assisted work planning","Team communication and task coordination","Responsible AI use in supervision"] },
         ],
       },
       {
@@ -39,6 +40,7 @@ export const clusters: Cluster[] = [
           { title: "Strategic Leadership Foundations", topics: ["Strategic thinking", "Leadership vision", "Organizational strategy", "Strategic decision-making", "Leadership effectiveness"] },
           { title: "Strategy Execution", topics: ["Strategic planning", "Goal setting", "Execution frameworks", "Performance measurement", "Accountability"] },
           { title: "Leading Organizational Change", topics: ["Understanding organizational change", "Change leadership", "Managing resistance", "Stakeholder engagement", "Building organizational agility"] },
+          { title: "AI-Assisted Strategic Planning and Decision Support", topics: ["AI-assisted strategic research","Scenario planning and analysis","Verification and human decision-making"] },
         ],
       },
       {
@@ -49,6 +51,7 @@ export const clusters: Cluster[] = [
           { title: "Executive Leadership", topics: ["Executive leadership principles", "Leadership presence", "Strategic influence", "Executive decision-making", "Leading at organizational level"] },
           { title: "Corporate Strategy & Governance", topics: ["Corporate strategy", "Governance principles", "Risk management", "Executive accountability", "Organizational sustainability"] },
           { title: "Leading Transformation", topics: ["Organizational transformation", "Innovation leadership", "Digital transformation", "Managing organizational complexity", "Building future-ready organizations"] },
+          { title: "AI Governance and Executive Digital Transformation", topics: ["AI strategy and governance","Executive decision support","Risk, accountability and digital transformation"] },
         ],
       },
       {
@@ -63,6 +66,7 @@ export const clusters: Cluster[] = [
           { title: "Conflict Resolution & Pastoral Leadership", topics: ["Understanding conflict in church environments", "Sources of organizational and interpersonal conflict", "Biblical approaches to conflict resolution", "Mediation and reconciliation", "Difficult conversations", "Managing leadership disagreements", "Building trust and restoring relationships", "Pastoral care and people-centred leadership"] },
           { title: "Leadership Development & Succession", topics: ["Identifying emerging church leaders", "Mentorship and coaching", "Leadership pipeline development", "Succession planning", "Preparing the next generation of leaders", "Knowledge transfer and continuity", "Developing ministry leadership competencies", "Building sustainable leadership structures"] },
           { title: "Community Transformation & Social Impact", topics: ["The role of the church in community development", "Community engagement and partnerships", "Social responsibility and outreach", "Youth and family empowerment", "Supporting vulnerable communities", "Church-led social impact initiatives", "Partnerships with government, NGOs and community organizations", "Measuring social and community impact"] },
+          { title: "Responsible AI for Ministry Administration", topics: ["AI-assisted ministry administration","Communication and programme planning","Confidentiality and responsible use"] },
         ],
       },
     ],
@@ -78,6 +82,7 @@ export const clusters: Cluster[] = [
         modules: [
           { title: "Performance Management Foundations", topics: ["Understanding performance management", "Performance expectations", "Goal setting", "Performance indicators"] },
           { title: "Accountability & Results", topics: ["Building accountability", "Monitoring performance", "Performance reviews", "Continuous improvement"] },
+          { title: "AI-Assisted Performance Monitoring and Reporting", topics: ["Performance reporting","Monitoring and analysis","Human review of performance information"] },
         ],
       },
       {
@@ -87,6 +92,7 @@ export const clusters: Cluster[] = [
         modules: [
           { title: "Customer Experience Foundations", topics: ["Understanding customer expectations", "Customer journey mapping", "Customer needs analysis", "Service excellence"] },
           { title: "Service Leadership", topics: ["Leading customer-focused teams", "Service recovery", "Managing difficult customers", "Building customer loyalty"] },
+          { title: "AI for Customer Communication and Service Improvement", topics: ["AI-assisted customer communication","Service feedback analysis","Human oversight and service improvement"] },
         ],
       },
       {
@@ -96,6 +102,7 @@ export const clusters: Cluster[] = [
         modules: [
           { title: "Understanding Organizational Culture", topics: ["Culture fundamentals", "Organizational values", "Workplace behaviours", "Culture assessment"] },
           { title: "Building a High-Performance Culture", topics: ["Values-driven leadership", "Employee engagement", "Culture transformation", "Embedding organizational values"] },
+          { title: "Building an AI-Ready Organizational Culture", topics: ["Organizational AI readiness","Employee engagement","AI adoption and change management"] },
         ],
       },
     ],
@@ -111,6 +118,7 @@ export const clusters: Cluster[] = [
         modules: [
           { title: "Transformational Leadership", topics: ["Transformational leadership principles", "Leading change", "Leadership vision", "Innovation and transformation"] },
           { title: "Purpose-Driven Leadership", topics: ["Purpose and organizational identity", "Values-driven leadership", "Stakeholder impact", "Creating sustainable impact"] },
+          { title: "Leading Organizational Transformation in the AI Era", topics: ["AI-enabled organizational change","People-centred innovation","Responsible transformation"] },
         ],
       },
       {
@@ -120,6 +128,7 @@ export const clusters: Cluster[] = [
         modules: [
           { title: "Training & Facilitation Foundations", topics: ["Adult learning principles", "Training needs analysis", "Facilitation techniques", "Trainer effectiveness"] },
           { title: "Learning Design & Delivery", topics: ["Training programme design", "Learning objectives", "Interactive learning", "Training evaluation"] },
+          { title: "AI-Assisted Instructional Design and Facilitation", topics: ["AI-assisted learning materials","Facilitation and instructional design","Assessment development and verification"] },
         ],
       },
       {
@@ -133,9 +142,185 @@ export const clusters: Cluster[] = [
           { title: "Expand Your Business (EYB)", topics: ["Assessing business growth readiness", "Developing a business growth strategy", "Marketing for growth", "Operations management", "Human resource planning", "Financial management", "Strategic management", "Preparing a business growth plan"] },
           { title: "SIYB Business Game", topics: ["Business planning and decision-making", "Organizing business operations", "Production and resource management", "Buying and selling decisions", "Costing and pricing decisions", "Competition and market dynamics", "Negotiation and cooperation", "Understanding the financial impact of business decisions"] },
           { title: "Digitalize Your Business Module", topics: ["Assessing business digital readiness", "Building an online business presence", "Digital marketing and customer engagement", "Using e-commerce to sell products and services", "Digitalizing business processes and operations", "Selecting appropriate digital tools", "Developing a practical business digitalization strategy"] },
+          { title: "Practical AI for Entrepreneurship (Supplementary Limitless Module — not an official ILO–SIYB module)", topics: ["AI-assisted market research","Marketing and customer engagement","Business planning and management"] },
         ],
       },
     ],
+  },
+  {
+    "name": "AI Training & Digital Transformation",
+    "description": "Practical AI capacity building for workplace productivity, leadership, responsible adoption and digital workflow improvement.",
+    "programmes": [
+      {
+        "slug": "ai-workplace-productivity",
+        "title": "Artificial Intelligence for Workplace Productivity",
+        "overview": "Practical AI training for employees, administrators, project officers, managers and professional teams, focused on responsible workplace application.",
+        "modules": [
+          {
+            "title": "AI Fundamentals and Workplace Applications",
+            "topics": [
+              "AI fundamentals",
+              "Workplace applications"
+            ]
+          },
+          {
+            "title": "Prompt Engineering and Effective AI Communication",
+            "topics": [
+              "Effective prompts",
+              "Communicating instructions and context"
+            ]
+          },
+          {
+            "title": "AI-Assisted Document Preparation, Research and Reporting",
+            "topics": [
+              "Document preparation",
+              "Research and reporting"
+            ]
+          },
+          {
+            "title": "AI for Presentations, Spreadsheets and Workplace Planning",
+            "topics": [
+              "Presentations",
+              "Spreadsheets",
+              "Workplace planning"
+            ]
+          },
+          {
+            "title": "Department-Specific Productivity Applications",
+            "topics": [
+              "Departmental use cases",
+              "Practical productivity workflows"
+            ]
+          },
+          {
+            "title": "Responsible AI, Information Accuracy and Data Protection",
+            "topics": [
+              "Output verification",
+              "Confidentiality and data protection"
+            ]
+          },
+          {
+            "title": "Practical Workplace Exercises and Competency Assessment",
+            "topics": [
+              "Hands-on workplace exercises",
+              "Competency assessment"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "ai-leadership-strategy-decision-making",
+        "title": "AI for Leadership, Strategy and Decision-Making",
+        "overview": "Designed for CEOs, senior managers, executives, boards and organizational leaders seeking to understand AI's strategic implications and lead responsible adoption.",
+        "modules": [
+          {
+            "title": "Understanding AI's Strategic Implications",
+            "topics": [
+              "Strategic implications of AI"
+            ]
+          },
+          {
+            "title": "AI Opportunities and Organizational Competitiveness",
+            "topics": [
+              "AI opportunities",
+              "Organizational competitiveness"
+            ]
+          },
+          {
+            "title": "AI-Assisted Research and Decision Support",
+            "topics": [
+              "Research and analysis",
+              "Human-led decision support"
+            ]
+          },
+          {
+            "title": "AI Governance, Risk and Accountability",
+            "topics": [
+              "Governance",
+              "Risk and accountability"
+            ]
+          },
+          {
+            "title": "Leading Employees Through Digital Transformation",
+            "topics": [
+              "Employee engagement",
+              "Leading digital change"
+            ]
+          },
+          {
+            "title": "AI Investment Prioritization and Return-on-Investment Assessment",
+            "topics": [
+              "Investment prioritization",
+              "ROI assessment"
+            ]
+          },
+          {
+            "title": "Developing an Organizational AI Adoption Strategy",
+            "topics": [
+              "AI readiness",
+              "Adoption strategy"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "ai-automation-digital-workflow-transformation",
+        "title": "AI Automation and Digital Workflow Transformation",
+        "overview": "Designed for operations teams, departmental managers, administrators and organizations seeking practical process improvements through responsible AI-assisted workflows.",
+        "modules": [
+          {
+            "title": "Identifying Repetitive and Time-Consuming Tasks",
+            "topics": [
+              "Task identification",
+              "Process improvement opportunities"
+            ]
+          },
+          {
+            "title": "Mapping and Redesigning Organizational Workflows",
+            "topics": [
+              "Workflow mapping",
+              "Workflow redesign"
+            ]
+          },
+          {
+            "title": "Introduction to AI-Assisted Automation",
+            "topics": [
+              "Automation fundamentals",
+              "AI-assisted processes"
+            ]
+          },
+          {
+            "title": "No-Code and Low-Code Productivity Solutions",
+            "topics": [
+              "No-code tools",
+              "Low-code productivity solutions"
+            ]
+          },
+          {
+            "title": "Integrating Approved Digital Tools",
+            "topics": [
+              "Approved tool selection",
+              "Digital tool integration"
+            ]
+          },
+          {
+            "title": "Workflow Testing, Information Security and Human Oversight",
+            "topics": [
+              "Testing",
+              "Information security",
+              "Human oversight"
+            ]
+          },
+          {
+            "title": "Monitoring Operational Improvements",
+            "topics": [
+              "Baseline measures",
+              "Monitoring operational outcomes"
+            ]
+          }
+        ]
+      }
+    ]
   },
 ];
 
