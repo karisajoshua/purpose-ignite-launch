@@ -118,12 +118,11 @@ const CoursesSection = () => {
           </p>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
-            Management & Leadership Development
+            Leadership, Management & Digital Transformation
           </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive programmes designed to build leadership
-            capacity at every level of your organization.
+            Comprehensive programmes designed to build leadership, functional excellence and practical AI capabilities across your organization.
           </p>
         </div>
 
