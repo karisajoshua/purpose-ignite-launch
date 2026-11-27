@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 
 const ProgrammesPage = () => (
   <div>
-    <SEO title="Programmes" description="Leadership by Level and Functional Excellence programmes — supervisory, middle management, executive leadership, communication, strategy, and entrepreneurship training." path="/programmes" />
+    <SEO title="Programmes" description="Explore leadership, functional excellence, specialized training and AI & digital transformation programmes for organizations." path="/programmes" />
     <Navbar />
     <div className="pt-20">
       <CoursesSection />
